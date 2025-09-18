@@ -1,0 +1,96 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #1A1A1A;
+    color: #F0F0F0;
+}
+
+.container {
+    text-align: center;
+    background-color: #222222;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+h1 {
+    font-size: 3.5rem;
+    color: #00FF7F;
+    margin-bottom: 25px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.status {
+    font-size: 1.8rem;
+    margin-bottom: 30px;
+    color: #00FF7F;
+    font-weight: bold;
+}
+
+.board {
+    display: grid;
+    grid-template-columns: repeat(6, 65px); /* Změna na 6 sloupců */
+    grid-template-rows: repeat(6, 65px); /* Změna na 6 řádků */
+    gap: 8px;
+    margin-bottom: 30px;
+    border: 3px solid #00C896;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+.cell {
+    width: 65px; /* Upravená velikost buňky */
+    height: 65px; /* Upravená velikost buňky */
+    background-color: #2A2A2A;
+    border: 2px solid #444444;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.5rem; /* Menší písmo pro menší buňku */
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+    border-radius: 8px;
+}
+
+.cell:hover {
+    background-color: #383838;
+    transform: scale(1.05);
+}
+
+.cell.x {
+    color: #FF63D8;
+}
+
+.cell.o {
+    color: #00D2D3;
+}
+
+#restartButton {
+    padding: 12px 25px;
+    font-size: 1.1rem;
+    background-color: #00FF7F;
+    color: #1A1A1A;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+#restartButton:hover {
+    background-color: #00C896;
+    transform: translateY(-2px);
+}
+#confetti-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Umožní klikání na prvky pod plátnem */
+}
