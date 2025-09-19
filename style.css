@@ -3,10 +3,11 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh; /* Používáme min-height, aby se obsah vešel na stránku */
     margin: 0;
     background-color: #1A1A1A;
     color: #F0F0F0;
+    padding: 20px;
 }
 
 .container {
@@ -15,6 +16,7 @@ body {
     padding: 30px;
     border-radius: 15px;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    max-width: 90%; /* Omezíme šířku kontejneru */
 }
 
 h1 {
@@ -33,8 +35,8 @@ h1 {
 
 .board {
     display: grid;
-    grid-template-columns: repeat(6, 65px); /* Změna na 6 sloupců */
-    grid-template-rows: repeat(6, 65px); /* Změna na 6 řádků */
+    grid-template-columns: repeat(6, 65px);
+    grid-template-rows: repeat(6, 65px);
     gap: 8px;
     margin-bottom: 30px;
     border: 3px solid #00C896;
@@ -43,14 +45,14 @@ h1 {
 }
 
 .cell {
-    width: 65px; /* Upravená velikost buňky */
-    height: 65px; /* Upravená velikost buňky */
+    width: 65px;
+    height: 65px;
     background-color: #2A2A2A;
     border: 2px solid #444444;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 2.5rem; /* Menší písmo pro menší buňku */
+    font-size: 2.5rem;
     font-weight: bold;
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.1s ease;
@@ -86,11 +88,44 @@ h1 {
     background-color: #00C896;
     transform: translateY(-2px);
 }
+
 #confetti-canvas {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    pointer-events: none; /* Umožní klikání na prvky pod plátnem */
+    pointer-events: none;
+}
+
+/* ------------------------------------------- */
+/* Styly pro mobilní zařízení (do 600px) */
+@media (max-width: 600px) {
+    .container {
+        padding: 15px; /* Menší vnitřní okraje */
+    }
+
+    h1 {
+        font-size: 2.5rem; /* Menší nadpis */
+    }
+
+    .status {
+        font-size: 1.4rem; /* Menší text statusu */
+    }
+
+    .board {
+        grid-template-columns: repeat(6, 45px); /* Zmenšíme buňky */
+        grid-template-rows: repeat(6, 45px); /* Zmenšíme buňky */
+    }
+
+    .cell {
+        width: 45px; /* Menší velikost buňky */
+        height: 45px; /* Menší velikost buňky */
+        font-size: 1.8rem; /* Menší písmo pro symboly */
+    }
+
+    #restartButton {
+        padding: 10px 20px; /* Menší tlačítko */
+        font-size: 1rem;
+    }
 }
